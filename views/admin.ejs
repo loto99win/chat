@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/admin.css">
+    <script src="http://localhost:2000/socket.io/socket.io.js"></script>
+    <script src="/jquery/jquery-3.7.0.min.js"></script>
+    <title><%= user.name %></title>
+    <meta http-equiv="Content-Security-policy" content="script-src 'self' 'unsafe-inline'" />
+</head>
+<body>
+
+    <div class="container">
+        <div class="userCurrent">
+            <div class="image">
+                <img src="<%=user.avatar%>" alt="<%=user.name%>">
+            </div>
+            <div class="name">
+                <%=user.name%>
+            </div>
+            <div class="signout">
+                <a href="/signout">Signout</a>
+            </div>
+        </div>
+        <div class="admin">
+            <% 
+                for(let i=0; i<users.length; i++){
+                    %>
+                        <div class="user">
+                            <div class="avatar">
+                                <img src="<%= users[i].avatar %>" alt="<%= users[i].name %>">
+                            </div>
+                            <% if (users[i]['isActive'] == 1) { %>
+                                <div class="online-status" id="<%= users[i]['_id'] %>-status"></div>
+                            <% } else { %>
+                                <div class="offline-status" id="<%= users[i]['_id'] %>-status"></div>
+                            <% } %>
+                            <div class="name"><%= users[i].name %></div>
+                        </div>
+                    <%
+                }    
+            %>
+        </div>
+    </div>
+    
+    <script>
+        
+        var sender_id = '<%= user._id %>';
+        var socket = io('/user-namespace', {
+            auth: {
+                token: '<%= user._id %>'
+            }
+        });  
+
+        // update user online status
+
+        socket.on('getOnlineUser', function(data){
+            $('#'+data.user_id+'-status').addClass('online-status');
+            $('#'+data.user_id+'-status').removeClass('offline-status');
+        });
+
+        // update user offline status
+        socket.on('getOfflineUser', function(data) {
+            $('#'+data.user_id+'-status').addClass('offline-status');
+            $('#'+data.user_id+'-status').removeClass('online-status');
+        });
+    </script>
+</body>
+</html>

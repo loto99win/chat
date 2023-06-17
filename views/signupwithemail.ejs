@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="/css/signupwithemail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="/jquery/jquery-3.7.0.min.js"></script>
+    <title>Singup</title>
+
+<%- include('home'); %>
+    <div class="form">
+        <div class="title">Signup</div>
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="field">
+                <div class="lbl"><label for="name">Name</label></div>
+                <div class="input"><input type="text" id="name" name="name" required value="Phạm Hồng Bình"></div>
+                <div class="error-name"></div>
+            </div>
+            <div class="field">
+                <div class="lbl"><label for="email">Email</label></div>
+                <div class="input"><input type="email" id="email" name="email" required value="loto99win@gmail.com"></div>
+                <div class="error-email"></div>
+            </div>
+            <div class="field">
+                <div class="lbl"><label for="password">Password</label></div>
+                <div class="input"><input type="password" id="password" name="password" required value="123456"></div>
+                <div class="error-password"></div>
+            </div>
+            <div class="field">
+                <div class="lbl"><label for="avatar">Avatar</label></div>
+                <div class="input"><input type="file" id="avatar" name="avatar" required></div>
+                <div class="error-avatar"></div>
+            </div>
+            <div class="field">
+                <button type="submit">Signup</button>
+            </div>
+        </form>
+        <div class="status-signup">
+            <% if (typeof message !== 'undefined') { %>
+                    <p><%=message%></p>
+            <%  } %>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('button').click(function(){
+                var valueName = $("#name").val();
+                var valueEmail = $("#email").val();
+                var valueAvatar = $("#avatar").val();
+                var valuePassword = $("#password").val();
+
+                if(valueName !== '') {
+                    $(".error-name").removeClass('failed').addClass("success");
+                } else {
+                    $(".error-name").removeClass('success').addClass('failed');
+                }
+
+                if(valueEmail !== '') {
+                    $(".error-email").removeClass('failed').addClass("success");
+                } else {
+                    $(".error-email").removeClass('success').addClass('failed');
+                }
+
+                if(valueAvatar !== '') {
+                    $(".error-avatar").removeClass('failed').addClass("success");
+                } else {
+                    $(".error-avatar").removeClass('success').addClass('failed');
+                }
+
+                if(valuePassword !== '') {
+                    $(".error-password").removeClass('failed').addClass("success");
+                } else {
+                    $(".error-password").removeClass('success').addClass('failed');
+                }
+            });
+
+            var message = $('.status-signup').text();
+            if(message === 'Email already in use') {
+                $('.status-signup').addClass('warning');
+            }
+        }); 
+    </script>

@@ -1,0 +1,75 @@
+<title>Signin</title>
+<link rel="stylesheet" href="/css/signin.css">
+<script src="/jquery/jquery-3.7.0.min.js"></script>
+
+
+<%- include('home'); %>
+<div class="container-signin">
+    <div class="title">Signin</div>
+    <form action="" method="post">
+        <div class="field">
+            <div class="lbl">
+                <label for="email">Email</label>
+            </div>
+            <div class="input">
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="message-email"></div>
+        </div>
+        <div class="field">
+            <div class="lbl">
+                <label for="password">Password</label>
+            </div>
+            <div class="input">
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="message-password"></div>
+        </div>
+        <div class="help">
+            <a class="forget" href="/forget">Forget password?</a>
+            <a class="signup" href="/signup">Signup</a>
+        </div>
+        <div class="button">
+            <button type="submit">Signin</button>
+        </div>
+    </form>
+    <div class="message">
+        <% 
+            if(typeof ss !== 'undefined'){
+                %>
+                    <div class="ss"><%= ss %></div>
+                <%
+            }
+            if(typeof sf !== 'undefined'){
+                %>
+                    <div class="sf"><%= sf %></div>
+                <%
+            }
+            if(typeof error1 !== 'undefined'){
+                %>
+                    <div class="error1"><%= error1 %></div>
+                <%
+            }
+        %>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $('button').click(function(){
+            var email = $('#email').val();
+            var password = $('#password').val();
+
+            if(email !== '') {
+                $('.message-email').removeClass('error').addClass('success');
+            } else {
+                $('.message-email').removeClass('success').addClass('error');
+            }
+
+            if(password !== '') {
+                $('.message-password').removeClass('error').addClass('success');
+            } else {
+                $('.message-password').removeClass('success').addClass('error');
+            }
+        });
+    });
+</script>

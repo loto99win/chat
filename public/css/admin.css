@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.userCurrent {
+    width: 100%;
+    height: 3rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.image {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+}
+
+.name {
+    margin-right: 2rem;
+}
+
+.signout a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #000;
+}
+
+.signout {
+    margin-right: 1rem;
+}
+
+.signout a:hover {
+    color: rgb(230, 4, 196);
+}
+
+.image img {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100rem;
+}
+
+.admin {
+    font-size: 1.2rem;
+    color: gray;
+    width: 400px;
+    margin: 2rem;
+}
+
+.user {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.name {
+    margin-left: 3rem;
+}
+
+.avatar img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 100rem;
+}
+
+.avatar {
+    position: absolute;
+}
+
+.online-status {
+    position: relative;
+    top: 13px;
+    left: 31px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: green;
+    border: 3px solid #fff;
+}

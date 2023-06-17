@@ -1,0 +1,116 @@
+.container-signin {
+    width: 600px;
+    height: 600px;
+    background-color: #fff;
+    margin: 3rem auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+}
+.title {
+    font-size: 1.5rem;
+    color: gray;
+    margin-bottom: 2rem;
+}
+
+.field {
+    margin-bottom: 1rem;
+}
+
+.lbl {
+    margin-bottom: 0.4rem;
+}
+
+label {
+    font-size: 1rem;
+    color: gray;
+}
+
+input {
+    width: 300px;
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    color: gray;
+}
+
+.button {
+    margin-top: 1rem;
+}
+
+button {
+    width: 100%;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.5rem;
+    background-color: #008cab;
+    border: none;
+}
+
+button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+.help {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+a.forget, a.signup {
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    color: gray;
+}
+
+a.forget:hover, a.signup:hover {
+    color: rgb(19, 184, 255);
+}
+
+.message-email {
+    width: 100%;
+    height: 1.1rem;
+    margin-top: 0.3rem;
+    text-align: right;
+}
+.message-password {
+    width: 100%;
+    height: 1.1rem;
+    margin-top: 0.3rem;
+    text-align: right;
+}
+
+.error::after {
+    content: 'invalid';
+    color: red;
+    font-size: 1rem;
+}
+
+.success::after {
+    content: 'ok';
+    color: green;
+    font-size: 1rem;
+}
+
+.message {
+    width: 100%;
+    height: 2rem;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error1, .sf {
+    color: red;
+}
+
+.ss {
+    color: green;
+}

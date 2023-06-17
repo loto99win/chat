@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/css/forget.css">
+
+<%- include('home'); %>
+
+<div class="forget-password">
+    <h2>Forget Password</h2>
+    <form action="" method="post">
+        <div class="email">
+            <input type="email" required placeholder="Enter Email" name="email">
+        </div>
+        <div class="submit">
+            <input type="submit" value="Send Verify Link To Email">
+        </div>
+    </form>
+    <div class="message">
+        <% if(typeof message !== 'undefined') { %>
+            <div><%= message %></div>
+        <% } %>
+    </div>
+</div>
