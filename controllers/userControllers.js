@@ -495,8 +495,8 @@ const sendVerifyMail = async(name, mail, userId) => {
         const transporter = nodemailer.createTransport({
             
             host: 'smtp.gmail.com',
-            port: 465,
-            secure: true,
+            port: 587,
+            secure: false,
             requireTLS: true,
             auth: {
                 user: 'phamhongbinh19950306@gmail.com',
@@ -531,8 +531,8 @@ const sendResetPasswordSendMail = async(name, mail, token) => {
         const transporter = nodemailer.createTransport({
             
             host: 'smtp.gmail.com',
-            port: 465,
-            secure: true,
+            port: 587,
+            secure: false,
             requireTLS: true,
             auth: {
                 user: 'phamhongbinh19950306@gmail.com',
