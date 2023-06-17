@@ -495,8 +495,8 @@ const sendVerifyMail = async(name, mail, userId) => {
         const transporter = nodemailer.createTransport({
             
             host: 'smtp.gmail.com',
-            port: 587,
-            secure: false,
+            port: 465,
+            secure: true,
             requireTLS: true,
             auth: {
                 user: 'phamhongbinh19950306@gmail.com',
@@ -508,7 +508,7 @@ const sendVerifyMail = async(name, mail, userId) => {
             from: 'phamhongbinh19950306@gmail.com',
             to: mail,
             subject: 'For Verification Mail',
-            html: '<p>Hii '+name+', please click here to <a href="http://localhost:2000/verify?id='+userId+'">Verify</a> your mail.</p>'
+            html: '<p>Hii '+name+', please click here to <a href="https://chat-socket-gjl4.onrender.com/verify?id='+userId+'">Verify</a> your mail.</p>'
         };
 
         transporter.sendMail(mailOptions, function(error, info) {
@@ -532,7 +532,7 @@ const sendResetPasswordSendMail = async(name, mail, token) => {
             
             host: 'smtp.gmail.com',
             port: 465,
-            secure: false,
+            secure: true,
             requireTLS: true,
             auth: {
                 user: 'phamhongbinh19950306@gmail.com',
@@ -544,7 +544,7 @@ const sendResetPasswordSendMail = async(name, mail, token) => {
             from: 'phamhongbinh19950306@gmail.com',
             to: mail,
             subject: 'For Reset Password',
-            html: '<p>Hii '+name+', please click here to <a href="http://localhost:2000/forget-password?token='+token+'">Reset</a> your password.</p>'
+            html: '<p>Hii '+name+', please click here to <a href="https://chat-socket-gjl4.onrender.com/forget-password?token='+token+'">Reset</a> your password.</p>'
         };
 
         transporter.sendMail(mailOptions, function(error, info) {
