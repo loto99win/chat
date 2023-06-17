@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": "https://github.com/loto99win/chat",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
